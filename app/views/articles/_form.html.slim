@@ -1,0 +1,14 @@
+= form_for(article) do |f|
+  .row
+    .small-8.small-centered.columns
+      fieldset
+        .field
+          = f.label :title
+          = f.text_field :title
+        .field
+          = f.label :text
+          = f.text_area :text
+        .actions
+          .button-group
+            = f.submit class: "small button"
+            = link_to 'Back', :back, class: 'cancel-link'

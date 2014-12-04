@@ -4,6 +4,8 @@ class CreateArticles < ActiveRecord::Migration
       t.references :user
       t.string :title
       t.text :text
+
+      t.timestamps
     end
   end
 end

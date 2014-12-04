@@ -1,0 +1,21 @@
+fieldset
+  h3.article-title
+    = article.title.to_s.titleize
+  p.article-text
+    = article.text
+  span.article-info
+    'written by&nbsp
+    = article.user.to_s.titleize
+    '&nbspon&nbsp
+    =article.created_at.to_formatted_s(:long_ordinal)
+  span.article-info
+  -if article.updated_at != article.created_at
+    .glyphicon.glyphicon-time
+    'Updated on&nbsp
+    =article.updated_at.to_formatted_s(:long_ordinal)
+  p.button-group
+  = link_to 'Show full text', article_path(article), class: 'small button'
+  - if (article.user_id == current_user.id)
+    span &nbsp
+    = link_to 'Edit', edit_article_path(article), class: 'small button'
+  br

@@ -1,0 +1,15 @@
+.row
+  .small-8.large-centered.columns
+    fieldset.panel
+      h2.article-title = article.title.to_s.titleize
+      p.article-text = article.text
+      span.article-info
+        'written by&nbsp
+        = article.user.to_s.titleize
+        '&nbspon&nbsp
+        =article.created_at.to_formatted_s(:long_ordinal)
+      p.button-group
+      - if (article.user_id == current_user.id)
+        span &nbsp
+        = link_to 'Edit', edit_article_path(article), class: 'small button'
+      = link_to 'Back', articles_path, class: 'small button'
