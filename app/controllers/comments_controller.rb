@@ -7,14 +7,16 @@ class CommentsController < ApplicationController
   expose(:comments) { |scope| scope.order(created_at: :desc) }
 
   def create
-    comment = article.comments.build(comment_params)
-    comment.user = current_user
+    comment = comments.new(comment_params)
+    comment.save
     respond_with(article)
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:text)
+    params.require(:comment)
+          .permit(:user_id, :text, :article_id)
+          .merge(user_id: current_user.id, article_id: article.id)
   end
 end

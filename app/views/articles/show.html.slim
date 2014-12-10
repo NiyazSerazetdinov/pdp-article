@@ -10,3 +10,7 @@
         span &nbsp
         = link_to 'Edit', edit_article_path(article_presenter.id), class: 'small button'
       = link_to 'Back', articles_path, class: 'small button'
+    .panel
+      = render 'comments/form', article: article
+      - article.comments.each do |comment|
+        = render 'comments/comment', comment: comment
