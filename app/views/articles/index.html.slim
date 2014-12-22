@@ -1,9 +1,10 @@
 .row
-  .small-2.columns
-    br
-      = link_to new_article_path, class: 'small button' do
-        |  New article
+  - if user_signed_in?
+      .small-2.columns
+        br
+          = link_to new_article_path, class: 'small button' do
+            |  New article
 
   .small-8.small-centered.columns
-    - articles.each do |article|
-      = render 'article', article: article
+    - article_presenters.each do |article_presenter|
+      = render 'article', article_presenter: article_presenter

@@ -1,21 +1,19 @@
 fieldset
   h3.article-title
-    = article.title.to_s.titleize
+    = article_presenter.formated_title
   p.article-text
-    = article.text
+    = simple_format(article_presenter.short_text)
   span.article-info
-    'written by&nbsp
-    = article.user.to_s.titleize
-    '&nbspon&nbsp
-    =article.created_at.to_formatted_s(:long_ordinal)
+    = article_presenter.created
+    '&nbspby&nbsp
+    = article_presenter.by_user
   span.article-info
-  -if article.updated_at != article.created_at
-    .glyphicon.glyphicon-time
-    'Updated on&nbsp
-    =article.updated_at.to_formatted_s(:long_ordinal)
+  -if article_presenter.updated?
+    .glyphicon
+    = article_presenter.updated
   p.button-group
-  = link_to 'Show full text', article_path(article), class: 'small button'
-  - if (article.user_id == current_user.id)
+  = link_to 'Show full text', article_path(article_presenter.id), class: 'small button'
+  - if article_presenter.user == current_user
     span &nbsp
-    = link_to 'Edit', edit_article_path(article), class: 'small button'
+    = link_to 'Edit', edit_article_path(article_presenter.id), class: 'small button'
   br

@@ -89,6 +89,10 @@ en:
         sign_up: 'Sign up'
         edit_profile: 'Edit profile'
 
+    article:
+      created: "Written %{date}"
+      updated: "Updated %{date}"
+
   time:
     formats:
       short_date: "%x"
@@ -96,4 +100,3 @@ en:
       us: "%m/%d/%Y %I:%M %p"
       us_date: "%m/%d/%Y"
       us_time: "%I:%M %p"
-

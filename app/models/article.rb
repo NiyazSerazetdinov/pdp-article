@@ -10,5 +10,4 @@ class Article < ActiveRecord::Base
     :uniqueness => {
       :case_sensitive => false
     }
-
 end
