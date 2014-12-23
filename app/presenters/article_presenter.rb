@@ -1,5 +1,6 @@
 class ArticlePresenter < BasePresenter
-  delegate :id, :user, :title, :text, :updated_at, :created_at, to: :@article
+  attr_reader :article
+  delegate :id, :user, :title, :text, :updated_at, :created_at, to: :article
 
   def initialize(article)
     @article = article
@@ -10,7 +11,11 @@ class ArticlePresenter < BasePresenter
   end
 
   def by_user
-    user.to_s.titleize
+    " by #{user.to_s.titleize}"
+  end
+
+  def created_by?(some_user)
+    user == some_user
   end
 
   def short_text
@@ -18,14 +23,14 @@ class ArticlePresenter < BasePresenter
   end
 
   def formated_title
-    title.to_s.titleize
+    title.titleize
   end
 
-  def updated
+  def updated_date
     I18n.t "app.article.updated", date: DatePresenter.wrap(updated_at).human_date
   end
 
-  def created
+  def created_date
     I18n.t "app.article.created", date: DatePresenter.wrap(created_at).human_date
   end
 end

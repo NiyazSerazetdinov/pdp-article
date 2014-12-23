@@ -8,7 +8,7 @@ class DatePresenter < BasePresenter
     case @date.to_date
     when Date.today
       "Today #{time}"
-    when Date.tomorrow
+    when Date.yesterday
       "Yesterday #{time}"
     else
       "on #{@date.strftime("%b %d, %Y")} #{time}"

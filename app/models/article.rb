@@ -1,13 +1,13 @@
 class Article < ActiveRecord::Base
   belongs_to :user
 
-  validates :user, :text, :presence => true
+  validates_presence_of :user, :text
   validates :title,
-    :presence => true,
-    :length => {
-      :maximum => 60
+    presence: true,
+    length: {
+      maximum: 60
     },
-    :uniqueness => {
-      :case_sensitive => false
+    uniqueness: {
+      case_sensitive: false
     }
 end

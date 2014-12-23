@@ -18,7 +18,7 @@ describe DatePresenter do
     end
 
     context "otherwise" do
-      let(:date) { Date.new(2014, 11, 5) }
+      let(:date) { 5.day.ago }
 
       it { is_expected.to eq "on #{date.strftime("%b %d, %Y")} #{date.strftime("at %I:%M%p")}" }
     end

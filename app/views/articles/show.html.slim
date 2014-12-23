@@ -4,12 +4,10 @@
       h2.article-title = article_presenter.formated_title
       p.article-text = simple_format(article_presenter.text)
       span.article-info
-        'written by&nbsp
-        = article_presenter.user.to_s.titleize
-        '&nbspon&nbsp
-        =article_presenter.created
+      = article_presenter.created_date
+      = article_presenter.by_user
       p.button-group
-      - if article_presenter.user == current_user
+      - if article_presenter.created_by?(current_user)
         span &nbsp
         = link_to 'Edit', edit_article_path(article_presenter.id), class: 'small button'
       = link_to 'Back', articles_path, class: 'small button'
