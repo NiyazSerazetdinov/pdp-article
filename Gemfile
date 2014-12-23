@@ -59,6 +59,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rails_best_practices'
   gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-its'
   gem 'rubocop'
 end
 
