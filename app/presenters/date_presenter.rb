@@ -1,5 +1,4 @@
 class DatePresenter < BasePresenter
-
   def initialize(date)
     @date = date
   end
@@ -11,11 +10,11 @@ class DatePresenter < BasePresenter
     when Date.yesterday
       "Yesterday #{time}"
     else
-      "on #{@date.strftime("%b %d, %Y")} #{time}"
+      "on #{@date.strftime('%b %d, %Y')} #{time}"
     end
   end
 
   def time
-    @date.strftime("at %I:%M%p")
+    @date.strftime('at %I:%M%p')
   end
 end

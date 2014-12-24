@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
 
   def create
     article.save
-    respond_with article, status: :created, notice: "Successfully created article."
+    respond_with article, status: :created, notice: 'Successfully created article.'
   end
 
   def update

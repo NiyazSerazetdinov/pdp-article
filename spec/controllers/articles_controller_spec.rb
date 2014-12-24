@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe ArticlesController do
 
-  context "when unauhorized user" do
+  context 'when unauhorized user' do
     subject { response }
 
     describe '#index' do
@@ -30,10 +30,9 @@ describe ArticlesController do
     end
   end
 
-  context "when authorized user" do
+  context 'when authorized user' do
     let(:user) { create(:user, confirmed_at: DateTime.now) }
-    let(:params) { { article: { title: "title", text: "text" }, format: :html } }
-
+    let(:params) { { article: { title: 'title', text: 'text' }, format: :html } }
 
     before { sign_in(user) }
     subject { response }
@@ -53,7 +52,7 @@ describe ArticlesController do
         subject { do_create }
 
         it 'creates new article' do
-          expect { subject }.to change{Article.count}.by(1)
+          expect { subject }.to change { Article.count }.by(1)
         end
 
         it { expect(response.status).to eq(200) }
@@ -63,7 +62,7 @@ describe ArticlesController do
         subject { post :create, article: { title: '', text: '' } }
 
         it 'creates new article' do
-          expect { subject }.not_to change{Article.count}
+          expect { subject }.not_to change { Article.count }
         end
 
         it { is_expected.to render_template(:new) }
