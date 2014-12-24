@@ -78,8 +78,6 @@ en:
       update: "Update"
       sure: "Are you sure?"
 
-    home: 'Dashboard'
-
     navigation:
       main:
         dashboard: 'Dashboard'
@@ -89,9 +87,8 @@ en:
         sign_up: 'Sign up'
         edit_profile: 'Edit profile'
 
-    article:
-      created: "Written %{date}"
-      updated: "Updated %{date}"
+    created: "Written %{date}"
+    updated: "Updated %{date}"
 
   time:
     formats:

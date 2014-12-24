@@ -27,13 +27,13 @@ class ArticlePresenter < BasePresenter
   end
 
   def update_date
-    I18n.t 'app.article.updated', date: DatePresenter.wrap(updated_at).human_date
+    I18n.t 'app.updated', date: DatePresenter.wrap(updated_at).human_date
   end
 
   private
 
   def create_date
-    I18n.t 'app.article.created', date: DatePresenter.wrap(created_at).human_date
+    I18n.t 'app.created', date: DatePresenter.wrap(created_at).human_date
   end
 
   def by_user

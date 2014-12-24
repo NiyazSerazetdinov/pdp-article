@@ -17,6 +17,6 @@ class CommentPresenter < BasePresenter
   end
 
   def create_date
-    I18n.t 'app.article.created', date: DatePresenter.wrap(created_at).human_date
+    I18n.t 'app.created', date: DatePresenter.wrap(created_at).human_date
   end
 end
