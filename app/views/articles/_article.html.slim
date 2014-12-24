@@ -1,0 +1,17 @@
+fieldset
+  h3.article-title
+    = article_presenter.formated_title
+  p.article-text
+    = simple_format(article_presenter.short_text)
+  span.article-info
+    = article_presenter.publication_info
+  span.article-info
+  -if article_presenter.updated?
+    .glyphicon
+    = article_presenter.updated_date
+  p.button-group
+  = link_to 'Show full text', article_path(article_presenter.id), class: 'small button'
+  - if article_presenter.created_by?(current_user)
+    span &nbsp
+    = link_to 'Edit', edit_article_path(article_presenter.id), class: 'small button'
+  br
