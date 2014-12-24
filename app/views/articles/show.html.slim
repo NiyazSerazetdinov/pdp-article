@@ -1,5 +1,5 @@
 .row
-  .small-8.large-centered.columns
+  .small-12.large-centered.columns
     fieldset.panel
       h2.article-title = article_presenter.formated_title
       p.article-text = simple_format(article_presenter.text)
@@ -10,7 +10,7 @@
         span &nbsp
         = link_to 'Edit', edit_article_path(article_presenter.id), class: 'small button'
       = link_to 'Back', articles_path, class: 'small button'
-    .panel
+    .panel.small-8.large-centered.columns
       = render 'comments/form', article: article
       - comment_presenters.each do |comment_presenter|
         = render 'comments/comment', comment_presenter: comment_presenter
