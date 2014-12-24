@@ -6,11 +6,17 @@ class CommentPresenter < BasePresenter
     @comment = comment
   end
 
-  def by_user
-    " by #{user.to_s.titleize}"
+  def comment_info
+    "#{create_date} #{by_user}"
   end
 
-  def created_date
+  private
+
+  def by_user
+    "by #{user.to_s.titleize}"
+  end
+
+  def create_date
     I18n.t 'app.article.created', date: DatePresenter.wrap(created_at).human_date
   end
 end
