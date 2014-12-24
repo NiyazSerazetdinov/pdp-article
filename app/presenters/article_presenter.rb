@@ -10,12 +10,12 @@ class ArticlePresenter < BasePresenter
     updated_at != created_at
   end
 
-  def by_user
-    " by #{user.to_s.titleize}"
+  def publication_info
+    "#{create_date} #{by_user}"
   end
 
-  def created_by?(some_user)
-    user == some_user
+  def created_by?(potential_owner)
+    user == potential_owner
   end
 
   def short_text
@@ -26,11 +26,17 @@ class ArticlePresenter < BasePresenter
     title.titleize
   end
 
-  def updated_date
+  def update_date
     I18n.t 'app.article.updated', date: DatePresenter.wrap(updated_at).human_date
   end
 
-  def created_date
+  private
+
+  def create_date
     I18n.t 'app.article.created', date: DatePresenter.wrap(created_at).human_date
+  end
+
+  def by_user
+    "by #{user.to_s.titleize}"
   end
 end
