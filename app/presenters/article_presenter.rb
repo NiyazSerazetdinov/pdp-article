@@ -1,6 +1,6 @@
 class ArticlePresenter < BasePresenter
   attr_reader :article
-  delegate :id, :user, :title, :text, :updated_at, :created_at, to: :article
+  delegate :id, :user, :comments, :title, :text, :updated_at, :created_at, to: :article
 
   def initialize(article)
     @article = article

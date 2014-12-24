@@ -1,3 +1,6 @@
 fieldset
   span
-   = simple_format(comment.text)
+  = simple_format(comment_presenter.text)
+  span.comment-info
+    = article_presenter.created_date
+    = article_presenter.by_user

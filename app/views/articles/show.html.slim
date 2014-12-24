@@ -12,5 +12,5 @@
       = link_to 'Back', articles_path, class: 'small button'
     .panel
       = render 'comments/form', article: article
-      - article.comments.each do |comment|
-        = render 'comments/comment', comment: comment
+      - comment_presenters.each do |comment_presenter|
+        = render 'comments/comment', comment_presenter: comment_presenter
