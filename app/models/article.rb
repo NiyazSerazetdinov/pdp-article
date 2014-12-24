@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
 
   has_many :comments, dependent: :destroy
 
-  validates :user, :text, :presence => true
+  validates :user, :text, presence: true
   validates :title,
             presence: true,
             length: {
