@@ -26,6 +26,10 @@ class ArticlePresenter < BasePresenter
     title.titleize
   end
 
+  def comment_presenters
+    CommentPresenter.wrap(comments.order(created_at: :desc))
+  end
+
   def update_date
     I18n.t 'app.updated', date: DatePresenter.wrap(updated_at).human_date
   end

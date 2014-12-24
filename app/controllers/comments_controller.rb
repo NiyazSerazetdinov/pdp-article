@@ -6,8 +6,8 @@ class CommentsController < ApplicationController
   expose(:article)
   expose(:comment, attributes: :comment_attributes, ancestor: :user_comments)
 
-  expose(:comment_presenter) { CommentPresenter.wrap(comment) }
-  expose(:comment_presenters) { CommentPresenter.wrap(comments) }
+  def index
+  end
 
   def create
     comment.save

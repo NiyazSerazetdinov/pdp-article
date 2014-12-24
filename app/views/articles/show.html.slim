@@ -11,6 +11,6 @@
         = link_to 'Edit', edit_article_path(article_presenter.id), class: 'small button'
       = link_to 'Back', articles_path, class: 'small button'
     .panel.small-8.large-centered.columns
-      = render 'comments/form', article: article
-      - comment_presenters.each do |comment_presenter|
+      = render 'comments/form', article: article, comment: comment
+      - article_presenter.comment_presenters.each do |comment_presenter|
         = render 'comments/comment', comment_presenter: comment_presenter

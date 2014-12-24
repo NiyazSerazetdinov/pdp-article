@@ -4,16 +4,21 @@ class ArticlesController < ApplicationController
 
   expose(:user_articles) { current_user.articles }
   expose(:article, attributes: :article_attributes, ancestor: :user_articles)
-  expose(:articles) { |scope| scope.includes(:user, comments: :user).order(created_at: :desc) }
-  expose(:comments) { article.comments.order(created_at: :desc) }
+  expose(:articles) { |scope| scope.includes(:user).order(created_at: :desc) }
+  expose(:comment) { article.comments.build }
 
   expose(:article_presenter) { ArticlePresenter.wrap(article) }
   expose(:article_presenters) { ArticlePresenter.wrap(articles) }
-  expose(:comment_presenters) { CommentPresenter.wrap(comments) }
+
+  def index
+  end
 
   def create
     article.save
     respond_with article, status: :created, notice: 'Successfully created article.'
+  end
+
+  def show
   end
 
   def update
