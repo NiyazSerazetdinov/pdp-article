@@ -1,6 +1,6 @@
 class ArticlePresenter < BasePresenter
   attr_reader :article
-  delegate :id, :user, :title, :text, :updated_at, :created_at, to: :article
+  delegate :id, :user, :comments, :title, :text, :updated_at, :created_at, to: :article
 
   def initialize(article)
     @article = article
@@ -26,14 +26,18 @@ class ArticlePresenter < BasePresenter
     title.titleize
   end
 
+  def comment_presenters
+    CommentPresenter.wrap(comments.order(created_at: :desc))
+  end
+
   def update_date
-    I18n.t 'app.article.updated', date: DatePresenter.wrap(updated_at).human_date
+    t 'app.updated', date: DatePresenter.wrap(updated_at).human_date
   end
 
   private
 
   def create_date
-    I18n.t 'app.article.created', date: DatePresenter.wrap(created_at).human_date
+    t 'app.created', date: DatePresenter.wrap(created_at).human_date
   end
 
   def by_user

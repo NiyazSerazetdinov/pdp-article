@@ -1,0 +1,4 @@
+ul.left
+  - if user_signed_in?
+    = active_link_to 'Add Article', new_article_path, active: :exclusive, wrap_tag: :li
+

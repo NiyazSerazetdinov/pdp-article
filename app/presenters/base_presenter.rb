@@ -1,9 +1,11 @@
 class BasePresenter
+  include ActionView::Helpers::TranslationHelper
+
   def self.wrap(object)
     if object.respond_to?(:map)
-      object.map { |el| self.new(el) }
+      object.map { |el| new(el) }
     else
-      self.new(object)
+      new(object)
     end
   end
 end
