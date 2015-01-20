@@ -1,5 +1,6 @@
 class BasePresenter
   include ActionView::Helpers::TranslationHelper
+  include ActionView::Helpers::TextHelper
 
   def self.wrap(object)
     if object.respond_to?(:map)

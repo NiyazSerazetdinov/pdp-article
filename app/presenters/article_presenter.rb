@@ -19,11 +19,15 @@ class ArticlePresenter < BasePresenter
   end
 
   def short_text
-    text.truncate(250, separator: ' ')
+    simple_format(text.truncate(400, separator: ' '))
   end
 
   def formated_title
     title.titleize
+  end
+
+  def formated_text
+    simple_format(text)
   end
 
   def comment_presenters

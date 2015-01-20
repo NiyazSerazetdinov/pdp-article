@@ -2,7 +2,7 @@
   .small-12.large-centered.columns
     fieldset.panel
       h2.article-title = article_presenter.formated_title
-      p.article-text = simple_format(article_presenter.text)
+      p.article-text = article_presenter.formated_text
       span.article-info
       = article_presenter.publication_info
       p.button-group
