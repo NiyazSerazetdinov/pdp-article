@@ -20,6 +20,7 @@ RSpec.configure do |config|
   config.include EmailSpec::Matchers
   config.include Devise::TestHelpers, type: :controller
   config.include FactoryGirl::Syntax::Methods
+  config.include Warden::Test::Helpers
 
   config.before do
     ActionMailer::Base.deliveries.clear
