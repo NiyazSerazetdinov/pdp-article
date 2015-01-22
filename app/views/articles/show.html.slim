@@ -2,11 +2,11 @@
   .small-12.large-centered.columns
     fieldset.panel
       h2.article-title = article_presenter.formated_title
-      p.article-text = simple_format(article_presenter.text)
+      p.article-text = article_presenter.formated_text
       span.article-info
       = article_presenter.publication_info
       p.button-group
-      - if article_presenter.created_by?(current_user)
+      - if CanEditPolicy.new(article_presenter.user, current_user).allowed?
         span &nbsp
         = link_to 'Edit', edit_article_path(article_presenter.id), class: 'small button'
       = link_to 'Back', articles_path, class: 'small button'

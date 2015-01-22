@@ -10,6 +10,10 @@ class CommentPresenter < BasePresenter
     "#{create_date} #{by_user}"
   end
 
+  def formated_text
+    simple_format(text)
+  end
+
   private
 
   def by_user

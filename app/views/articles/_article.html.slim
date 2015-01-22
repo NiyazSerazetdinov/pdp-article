@@ -2,7 +2,7 @@ fieldset
   h3.article-title
     = article_presenter.formated_title
   p.article-text
-    = simple_format(article_presenter.short_text)
+    = article_presenter.short_text
   span.article-info
     = article_presenter.publication_info
   span.article-info
@@ -11,7 +11,7 @@ fieldset
     = article_presenter.update_date
   p.button-group
   = link_to 'Show full text', article_path(article_presenter.id), class: 'small button'
-  - if article_presenter.created_by?(current_user)
+  - if CanEditPolicy.new(article_presenter.user, current_user).allowed?
     span &nbsp
     = link_to 'Edit', edit_article_path(article_presenter.id), class: 'small button'
   br
