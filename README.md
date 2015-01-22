@@ -19,6 +19,8 @@ Project description
 
 -
 
+Application available on [pdp-article.herokuapp.com](http://pdp-article.herokuapp.com/)
+
 Rails Base is maintained by [Timur Vafin](http://github.com/timurvafin).
 It was written by [Flatstack](http://www.flatstack.com) with the help of our
 [contributors](http://github.com/fs/rails-base/contributors).
