@@ -14,10 +14,6 @@ class ArticlePresenter < BasePresenter
     "#{create_date} #{by_user}"
   end
 
-  def created_by?(potential_owner)
-    user == potential_owner
-  end
-
   def short_text
     simple_format(text.truncate(400, separator: ' '))
   end
